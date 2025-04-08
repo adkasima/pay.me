@@ -23,13 +23,13 @@ public class Transacao {
 
     private LocalDateTime dataHoraTransacao;
 
-    @JoinColumn(name = "recebedor_id")
     @ManyToOne
-    private Usuario recebedor;
+    @JoinColumn(name = "conta_origem_id")
+    private Conta contaOrigem;
 
-    @JoinColumn(name = "pagador_id")
     @ManyToOne
-    private Usuario pagador;
+    @JoinColumn(name = "conta_destino_id")
+    private Conta contaDestino;
 
     @PrePersist
     void prePersist() {

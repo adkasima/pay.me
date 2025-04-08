@@ -1,9 +1,7 @@
 package dev.kasima.pay.me.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "tb_usuarios")
@@ -24,7 +22,9 @@ public class Usuario {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @Enumerated(EnumType.STRING)
     private TipoUsuario tipoUsuario;
+
 
     @OneToOne
     @JoinColumn(name = "conta_id")

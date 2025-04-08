@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_contas")
@@ -23,8 +24,8 @@ public class Conta {
     @OneToOne(mappedBy = "conta", cascade = CascadeType.ALL)
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "transacao")
-    private Transacao transacao;
+    @OneToMany(mappedBy = "contaDestino", cascade = CascadeType.ALL)
+    private List<Transacao> transacoesDestino;
 
 
 }
