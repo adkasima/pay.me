@@ -21,11 +21,12 @@ public class Conta {
 
     private BigDecimal saldo;
 
-    @OneToOne(mappedBy = "conta", cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id")
+    @OneToOne
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "contaDestino", cascade = CascadeType.ALL)
-    private List<Transacao> transacoesDestino;
+    @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL)
+    private List<Transacao> transacoes;
 
 
 }

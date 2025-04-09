@@ -33,6 +33,10 @@ public class Transacao {
     @JoinColumn(name = "recebedor_id")
     private Usuario recebedor;
 
+    @ManyToOne
+    @JoinColumn(name = "conta_id")
+    private Conta conta;
+
     @PrePersist
     void prePersist() {
         dataHoraTransacao = LocalDateTime.now();
