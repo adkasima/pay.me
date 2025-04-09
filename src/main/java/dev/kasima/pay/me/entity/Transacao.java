@@ -2,6 +2,7 @@ package dev.kasima.pay.me.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Transacao {
 
     @Id
@@ -24,12 +26,12 @@ public class Transacao {
     private LocalDateTime dataHoraTransacao;
 
     @ManyToOne
-    @JoinColumn(name = "conta_origem_id")
-    private Conta contaOrigem;
+    @JoinColumn(name = "pagador_id")
+    private Usuario pagador;
 
     @ManyToOne
-    @JoinColumn(name = "conta_destino_id")
-    private Conta contaDestino;
+    @JoinColumn(name = "recebedor_id")
+    private Usuario recebedor;
 
     @PrePersist
     void prePersist() {
